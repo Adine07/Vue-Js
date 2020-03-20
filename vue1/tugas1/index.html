@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adine-Vue | Tugas1</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+	<div id="App">
+		<h3>{{ initext }}</h3>
+		<br>
+		<button v-on:click="reverse()">Balik</button>
+		<button v-on:click="panjang()">Hitung Karakter</button>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+
+	<script>
+		new Vue({
+			el: '#App',
+			data: {
+				initext: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora reprehenderit blanditiis exercitationem possimus fugiat, odio, quo sed voluptatem dolorum dolores ipsam est hic aperiam vel debitis obcaecati. Nobis, illo, omnis.'
+			},
+
+			methods: {
+				reverse(){
+					this.initext=this.initext.split('').reverse().join('');
+				},
+				panjang(){
+					this.initext=this.initext.length;
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>
