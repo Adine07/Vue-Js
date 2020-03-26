@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adine | Saklar</title>
+	<style>
+		.lampu{
+			display: inline-block;
+		}
+		.img{
+			height: 50vh;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="App">
+		<div class="lampu">
+			<img class="img" :src="bool ? img1 : img2" alt="gambar lampu nyala">
+		</div>
+		<div class="lampu">
+			<img @click="tombol()" src="asset/tombol.png" alt="">
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+	<script>
+		new Vue({
+			el: '#App',
+			data: {
+				bool: true,
+				img1: 'asset/lampu_hidup.png',
+				img2: 'asset/lampu_mati.png',
+			},
+			methods: {
+				tombol(){
+					this.bool = !this.bool;
+				}
+			},
+		})
+	</script>
+	
+</body>
+</html>

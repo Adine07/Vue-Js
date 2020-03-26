@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adine | Belajar Vue2</title>
+	<style>
+		.salmon{
+			padding: 50px;
+			background: salmon;
+		}
+		.blue{
+			padding: 80px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+
+		{{ nama }}
+
+		<br><br>
+
+		<input type="text" v-bind:value="nama">
+
+		<br><br>
+
+		<div v-bind:class="nama_class"></div>
+
+		<br><br>
+
+		<span :class="berubah ? 'salmon' : 'blue'"></span>
+
+		<br><br><br><br><br>
+
+		<div>
+			<p v-if="berubah">Salmon</p>
+			<p v-else>Blue</p>
+		</div>
+
+		<ul>
+			<li v-for="i in 10">{{nama}} {{ i }}</li>
+		</ul>
+
+		<button v-on:click="ubah()">ubah nama</button>
+		<button @click="ubahClass()">Ubah Class</button>
+		<button @click="ubahClass2()">Ubah Class2</button>
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				nama: 'Muji',
+				nama_class: 'salmon',
+				berubah: false,
+			},
+			methods: {
+				ubah(){
+					this.nama = 'Hartono';
+				},
+				ubahClass(){
+					this.nama_class = 'blue';
+				},
+				ubahClass2(){
+					this.berubah = !this.berubah;
+				},
+			},
+		})
+	</script>
+	
+</body>
+</html>
